@@ -22,15 +22,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// Use the deployed database or local
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://rich:One12345.mlab.com:11336/wolverine";
 
-// // Set mongoose to leverage built in JavaScript ES6 Promises
-// // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI, { 
-//   useMongoClient: true
-// });
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
@@ -44,7 +43,7 @@ app.use(express.static("public"));
 // });
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost:27017/week18Populater");
+// mongoose.connect("mongodb://localhost:27017/week18Populater");
 
 // Routes
 
@@ -54,7 +53,7 @@ app.get("/scrape", function(req, res) {
   axios.get("http://www.nytimes.com/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
-
+ 
     // Now, we grab every h2 within an article tag, and do the following:
     $("article h2").each(function(i, element) {
       // Save an empty result object
