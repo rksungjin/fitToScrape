@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Use the deployed database or local
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://rich:One12345.mlab.com:11336/wolverine";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_wnchl7d7:123456@ds233061.mlab.com:33061/heroku_wnchl7d7";
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
