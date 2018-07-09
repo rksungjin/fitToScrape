@@ -44,15 +44,7 @@ app.use(express.static("public"));
 // });
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_wnchl7d7:rksj8080@ds233061.mlab.com:33061/heroku_wnchl7d7";
-
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
-
-// mongoose.connect("mongodb://heroku_wnchl7d7:rksj8080@ds233061.mlab.com:33061/heroku_wnchl7d7");
+mongoose.connect("mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w");
 // if(process.env.NODE_ENV == 'production'){
 //   mongoose.connect('mongodb://heroku_7hq9h98v:dtacg3acqu7cmo4em4hjg6s0mu@ds113282.mlab.com:13282/heroku_7hq9h98v');
 // Connect to the Mongo DB
