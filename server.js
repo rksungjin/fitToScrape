@@ -43,7 +43,9 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
-mongoose.connect("mongodb://menehune_123:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
+mongoose.connect("mongodb://heroku_wnchl7d7:rksj8080@ds233061.mlab.com:33061/heroku_wnchl7d7");
+// if(process.env.NODE_ENV == 'production'){
+//   mongoose.connect('mongodb://heroku_7hq9h98v:dtacg3acqu7cmo4em4hjg6s0mu@ds113282.mlab.com:13282/heroku_7hq9h98v');
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost:27017/week18Populater");
 
