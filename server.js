@@ -34,17 +34,17 @@ app.use(express.static("public"));
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mongoHeadlines";
 
-// // Set mongoose to leverage built in JavaScript ES6 Promises
-// // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI, {
-//   useMongoClient: true
-// });
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
 
 
-mongoose.connect("mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w");
+// mongoose.connect("mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w");
 // if(process.env.NODE_ENV == 'production'){
 //   mongoose.connect('mongodb://heroku_7hq9h98v:dtacg3acqu7cmo4em4hjg6s0mu@ds113282.mlab.com:13282/heroku_7hq9h98v');
 // Connect to the Mongo DB
