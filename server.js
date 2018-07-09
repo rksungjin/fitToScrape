@@ -43,9 +43,9 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
-// mongoose.connect("mongodb://menehune_123:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
+mongoose.connect("mongodb://menehune_123:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost:27017/week18Populater");
+// mongoose.connect("mongodb://localhost:27017/week18Populater");
 
 // Routes
 
