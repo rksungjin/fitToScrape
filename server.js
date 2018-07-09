@@ -32,16 +32,33 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
+if(process.env.NODE_ENV == 'production'){
+  mongoose.connect('mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w');
+}
+else{
+  mongoose.connect('mongodb://localhost/news-scraper');
+}
+var db = mongoose.connection;
 
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mongoHeadlines";
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
+// Show any Mongoose errors
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
 });
+
+// Once logged in to the db through mongoose, log a success message
+db.once('open', function() {
+  console.log('Mongoose connection successful.');
+});
+
+// // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// // Set mongoose to leverage built in JavaScript ES6 Promises
+// // Connect to the Mongo DB
+// mongoose.Promise = Promise;
+// mongoose.connect(MONGODB_URI, {
+//   useMongoClient: true
+// });
 
 
 // mongoose.connect("mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w");
