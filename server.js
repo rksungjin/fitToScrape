@@ -42,7 +42,7 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
-mongoose.connect("mongodb://heroku_wnchl7d7:@ds233061.mlab.com:33061/heroku_wnchl7d7");
+mongoose.connect("mongodb://heroku_123456:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost:27017/week18Populater");
 
