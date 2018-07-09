@@ -12,7 +12,7 @@ var cheerio = require("cheerio");
 var db = require("./models");
 
 // var PORT = 3000;
-const PORT = process.env.PORT || 3010;
+const PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -43,9 +43,9 @@ app.use(express.static("public"));
 //   useMongoClient: true
 // });
 
-mongoose.connect("mongodb://menehune_123:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
+// mongoose.connect("mongodb://menehune_123:rk123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
 // Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost:27017/week18Populater");
+mongoose.connect("mongodb://localhost:27017/week18Populater");
 
 // Routes
 
