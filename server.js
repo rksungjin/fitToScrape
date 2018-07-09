@@ -33,7 +33,7 @@ app.use(express.static("public"));
 // });
 
 if(process.env.NODE_ENV == 'production'){
-  mongoose.connect('mongodb://richardkim:b3wh910w<dbpassword>@ds233061.mlab.com:33061/heroku_b3wh9l0w');
+  mongoose.connect('mongodb://richardkim:b3wh910w@ds233061.mlab.com:33061/heroku_b3wh9l0w');
 }
 else{
   mongoose.connect('mongodb://localhost/news-scraper');
