@@ -22,14 +22,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-// Use the deployed database or local
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_wnchl7d7:123456@ds233061.mlab.com:33061/heroku_wnchl7d7";
+// // Use the deployed database or local
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_wnchl7d7:<dbpassword>@ds233061.mlab.com:33061/heroku_wnchl7d7";
 
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
+// // Connect to the Mongo DB
+// mongoose.Promise = Promise;
+// mongoose.connect(MONGODB_URI, {
+//   useMongoClient: true
+// });
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
@@ -42,6 +42,7 @@ mongoose.connect(MONGODB_URI, {
 //   useMongoClient: true
 // });
 
+mongoose.connect("mongodb://heroku_wnchl7d7:123456@ds233061.mlab.com:33061/heroku_wnchl7d7");
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost:27017/week18Populater");
 
